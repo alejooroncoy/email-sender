@@ -5,6 +5,8 @@ const app = express();
 
 const resend = new Resend(process.env.API_KEY);
 
+app.use(express.json());
+
 app.post("/send", async (req, res) => {
   const { to, subject, html } = req.body;
   const { data, error } = await resend.emails.send({

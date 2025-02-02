@@ -8,7 +8,7 @@ const resend = new Resend(process.env.API_KEY);
 app.post("/send", async (req, res) => {
   const { to, subject, html } = req.body;
   const { data, error } = await resend.emails.send({
-    from,
+    from: "onboarding@resend.dev",
     to,
     subject,
     html,
